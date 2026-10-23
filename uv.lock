@@ -451,7 +451,6 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "black" },
-    { name = "certifi" },
     { name = "isort" },
     { name = "langchain" },
     { name = "langchain-ollama" },
@@ -462,7 +461,6 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "black", specifier = ">=26.10.1" },
-    { name = "certifi", specifier = ">=2026.10.18" },
     { name = "isort", specifier = ">=9.0.2" },
     { name = "langchain", specifier = ">=1.4.6" },
     { name = "langchain-ollama", specifier = ">=1.1.0" },

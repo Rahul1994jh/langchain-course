@@ -5,7 +5,7 @@ import os
 
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
-#from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_ollama import ChatOllama
 
 load_dotenv()
@@ -26,14 +26,14 @@ def main() -> None:
         template=summary_template,
     )
 
-    # llm = ChatOpenAI(
-    #     model = os.environ.get("DEPLOYMENT_NAME"),
-    #     temperature = 0.7,
-    #     api_key = os.environ.get("OPENAI_API_KEY"),
-    #     base_url = os.environ.get("AZURE_OPENAI_ENDPOINT"),
-    #     )
+    llm = ChatOpenAI(
+        model = os.environ.get("DEPLOYMENT_NAME"),
+        temperature = 0.7,
+        api_key = os.environ.get("OPENAI_API_KEY"),
+        base_url = os.environ.get("AZURE_OPENAI_ENDPOINT"),
+        )
 
-    llm = ChatOllama(model = "llama3.2:latest", temperature = 0.3)
+    #llm = ChatOllama(model = "llama3.2:latest", temperature = 0.3)
     
     chain = summary_prompt_template | llm
     response = chain.invoke({"information": information})
